@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sounds/button-1.wav</file>
+        <file>sounds/uwu.wav</file>
+    </qresource>
+</RCC>
