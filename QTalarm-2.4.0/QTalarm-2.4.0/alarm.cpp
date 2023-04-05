@@ -10,7 +10,7 @@ Alarm::Alarm(QObject *parent) :
 {
     media = new QMediaPlayer(this);
     
-    this->_DefaultPath=QDir::tempPath()+"/QTalarm.ogg";
+    this->_DefaultPath="C:/Uni Stuff/GUI/QT Stuff/QTalarm-2.4.0/QTalarm-2.4.0/Sounds/condition_one.mp3";
     this->_isPlaying=false;
     this->_Pause=new QTimer(this);
     this->canResume=true;
