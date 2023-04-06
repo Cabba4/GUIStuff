@@ -76,9 +76,23 @@ Window {
         from: 0
         value: 1
         to: 5
+
         onValueChanged: {
-            circular_gauge1.value = slider1.value
-            gauge1.value = slider1.value
+            console.log("notch")
+            TRANSMITTER.onSliderValueChanged(value)
         }
+    }
+
+    Connections{
+        id: cppConnection
+        target: TRANSMITTER
+        ignoreUnknownSignals: true
+
+        function onSliderValue(new_value){
+            gauge1.value = new_value
+            circular_gauge1.value = new_value
+        }
+
+
     }
 }
