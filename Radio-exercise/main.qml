@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.11
 
 Window {
-    width: 640
+    width: 700
     height: 480
     visible: true
     title: qsTr("Hello World")
@@ -56,7 +56,14 @@ Window {
              y: 174
              width: 286
              height: 76
-             value: 0.5
+             from: 87.5
+             value: 0.1
+             to: 108.0
+             stepSize: 0.1
+             onValueChanged: {
+                 console.log("slider")
+                 TRANSMITTER.onSliderValueChanged(value)
+             }
          }
 
          RadioButton {
@@ -64,6 +71,10 @@ Window {
              x: 375
              y: 29
              text: "OFF"
+             onClicked: {
+                    console.log("OFF")
+                    TRANSMITTER.onRadioButtonClick("")
+                 }
          }
 
          RadioButton {
@@ -71,6 +82,10 @@ Window {
              x: 375
              y: 78
              text: qsTr("CH 1")
+             onClicked: {
+                    console.log("CH1")
+                    TRANSMITTER.onRadioButtonClick(95.7)
+                 }
          }
 
          RadioButton {
@@ -78,6 +93,10 @@ Window {
              x: 375
              y: 132
              text: qsTr("CH 2")
+             onClicked: {
+                    console.log("CH2")
+                    TRANSMITTER.onRadioButtonClick(99.0)
+                 }
          }
 
          RadioButton {
@@ -85,6 +104,10 @@ Window {
              x: 375
              y: 186
              text: qsTr("CH 3")
+             onClicked: {
+                    console.log("CH3")
+                    TRANSMITTER.onRadioButtonClick(104.2)
+                 }
          }
 
          Button {
@@ -95,6 +118,10 @@ Window {
              height: 57
              font.pointSize: 38
              text: qsTr("←")
+             onClicked: {
+                    console.log("Back Arrow")
+                    TRANSMITTER.onArrowClickMinus(0.5)
+                 }
          }
 
          Button {
@@ -105,6 +132,33 @@ Window {
              height: 57
              font.pointSize: 38
              text: qsTr("→")
+             onClicked: {
+                    console.log("Add Arrow")
+                    TRANSMITTER.onArrowClickAdd(0.5)
+                 }
+         }
+
+         Connections{
+             id: cppConnection
+             target: TRANSMITTER
+             ignoreUnknownSignals: true
+
+             function onSliderValue(new_value){
+                 radioFreqId.text = new_value
+             }
+
+             function onRadioValue(new_value){
+                 radioFreqId.text = new_value
+             }
+
+             function onArrowValueAdd(new_value){
+                 radioFreqId.text = (parseFloat(radioFreqId.text) + new_value).toFixed(1)
+             }
+
+             function onArrowValueMinus(new_value){
+                  radioFreqId.text = (parseFloat(radioFreqId.text) - new_value).toFixed(1)
+             }
+
          }
 
 }
