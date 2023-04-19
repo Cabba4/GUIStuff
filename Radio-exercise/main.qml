@@ -12,6 +12,7 @@ Window {
     Rectangle{
             x: 8
             y: 29
+            id: rectangle
             height: 150
             width: 300
             radius: 35
