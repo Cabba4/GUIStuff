@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>jjk.mp3</file>
+    </qresource>
+</RCC>
