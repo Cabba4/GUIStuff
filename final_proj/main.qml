@@ -22,13 +22,13 @@ Window {
 
         ListView {
             id: musicList
-            width: parent.width
-            height: 200
-            model: ["Song 1", "Song 2", "Song 3", "Song 4", "Song 5"]
-            delegate: Text {
-                text: modelData
-                font.pixelSize: 14
-            }
+                width: parent.width
+                height: 200
+                model: audioPlayer.songList // Bind to the songList property of your audioplayer instance
+                delegate: Text {
+                    text: modelData
+                    font.pixelSize: 14
+                }
         }
 
         RowLayout {
