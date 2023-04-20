@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>resistance.qml</file>
+        <file>voltage.qml</file>
+        <file>current.qml</file>
+        <file>theory.qml</file>
+        <file>formula.qml</file>
+        <file>formula.png</file>
+    </qresource>
+    <qresource prefix="/images"/>
+</RCC>
