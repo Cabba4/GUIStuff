@@ -1,6 +1,9 @@
 #include "audioplayer.h"
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QCoreApplication>
+#include <QDir>
+#include <QDebug>
 
 audioplayer::audioplayer(QObject* parent) : QObject(parent)
 {
@@ -8,9 +11,21 @@ audioplayer::audioplayer(QObject* parent) : QObject(parent)
     playlist = new QMediaPlaylist;
     player->setPlaylist(playlist);
 
-    playlist->addMedia(QUrl::fromLocalFile("C:/Uni Stuff/GUI/QT Stuff/final_proj/jjk.mp3"));
-    playlist->addMedia(QUrl::fromLocalFile("C:/Uni Stuff/GUI/QT Stuff/final_proj/jjk.mp3"));
-    //playlist->addMedia(QUrl("qrc:/music/3.mp3"));
+    QString path1 = "C:/Uni Stuff/GUI/QT Stuff/final_proj/jjk.mp3";
+    qDebug() << path1;
+
+    QList<QString> mimeTypes = player->supportedMimeTypes();
+        if (!mimeTypes.isEmpty()) {
+            foreach (const QString & mimeType, mimeTypes) {
+                qDebug() << mimeType;
+            }
+        }
+        else {
+            qDebug() << "SUCKER";
+        }
+
+    playlist->addMedia(QUrl::fromLocalFile(path1));
+    //playlist->addMedia(QUrl::fromLocalFile(path2));
     playlist->setCurrentIndex(0);
 
     // Connect the player signals to our slots

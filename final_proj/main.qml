@@ -47,7 +47,8 @@ Window {
                 text: "Play"
                 onClicked: {
                        audioPlayer.togglePlay();
-                       //playButton.text = audioPlayer.player.state() == QMediaPlayer::PlayingState ? "Pause" : "Play";
+                    //playButton.text = audioPlayer.player.state() == QMediaPlayer::PlayingState ? "Pause" : "Play";
+
                    }
             }
 
