@@ -11,7 +11,7 @@ audioplayer::audioplayer(QObject* parent) : QObject(parent)
     playlist = new QMediaPlaylist;
     player->setPlaylist(playlist);
 
-    QString path1 = "C:/Uni Stuff/GUI/QT Stuff/final_proj/jjk.mp3";
+    QString path1 = "qrc:/jjk.mp3";
     qDebug() << path1;
 
     QList<QString> mimeTypes = player->supportedMimeTypes();

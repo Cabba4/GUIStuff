@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Extras 1.4
 import QtQuick.Layouts 1.11
 
 Window {
@@ -9,6 +10,7 @@ Window {
     visible: true
     title: qsTr("Hello World")
     color: "#303446"
+
     Rectangle{
             x: 8
             y: 29
@@ -63,7 +65,7 @@ Window {
              stepSize: 0.1
              onValueChanged: {
                  console.log("slider")
-                 TRANSMITTER.onSliderValueChanged(value)
+                 TRANSMITTER.onSliderValueChanged(formatNumber(value, 1))
              }
          }
 
@@ -86,7 +88,8 @@ Window {
              onClicked: {
                     console.log("CH1")
                     TRANSMITTER.onRadioButtonClick(95.7)
-                 }
+                    sliderId.value=95.7
+                }
          }
 
          RadioButton {
@@ -96,8 +99,9 @@ Window {
              text: qsTr("CH 2")
              onClicked: {
                     console.log("CH2")
-                    TRANSMITTER.onRadioButtonClick(99.0)
-                 }
+                    TRANSMITTER.onSliderValueChanged(formatNumber(value, 1))
+                    sliderId.value=99.0
+                }
          }
 
          RadioButton {
@@ -108,7 +112,8 @@ Window {
              onClicked: {
                     console.log("CH3")
                     TRANSMITTER.onRadioButtonClick(104.2)
-                 }
+                    sliderId.value=104.2
+                }
          }
 
          Button {
@@ -122,7 +127,7 @@ Window {
              onClicked: {
                     console.log("Back Arrow")
                     TRANSMITTER.onArrowClickMinus(0.5)
-                 }
+                }
          }
 
          Button {
@@ -161,5 +166,10 @@ Window {
              }
 
          }
+
+         function formatNumber(number, decimals) {
+                // Function to format a number with specified number of decimals
+                return parseFloat(number).toFixed(decimals);
+            }
 
 }
