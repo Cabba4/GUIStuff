@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 9.0.1, 2023-04-20T10:53:00. -->
+=======
+<!-- Written by QtCreator 9.0.1, 2023-04-20T10:49:40. -->
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -60,6 +64,7 @@
  <data>
   <variable>ProjectExplorer.Project.PluginSettings</variable>
   <valuemap type="QVariantMap">
+<<<<<<< HEAD
    <valuemap type="QVariantMap" key="AutoTest.ActiveFrameworks">
     <value type="bool" key="AutoTest.Framework.Boost">true</value>
     <value type="bool" key="AutoTest.Framework.CTest">false</value>
@@ -71,11 +76,17 @@
    <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
+=======
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
    <valuemap type="QVariantMap" key="ClangTools">
     <value type="bool" key="ClangTools.AnalyzeOpenFiles">true</value>
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
     <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
+<<<<<<< HEAD
     <value type="int" key="ClangTools.ParallelJobs">6</value>
+=======
+    <value type="int" key="ClangTools.ParallelJobs">4</value>
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
@@ -236,14 +247,23 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration://wsl.localhost/Ubuntu/home/ozanefe/personal_projects/gui_qt_projects/GUIStuff/final_proj/final_proj.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">//wsl.localhost/Ubuntu/home/ozanefe/personal_projects/gui_qt_projects/GUIStuff/final_proj/final_proj.pro</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Uni Stuff/GUI/QT Stuff/final_proj/final_proj.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Uni Stuff/GUI/QT Stuff/final_proj/final_proj.pro</value>
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+<<<<<<< HEAD
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">//wsl.localhost/Ubuntu/home/ozanefe/personal_projects/gui_qt_projects/GUIStuff/build-final_proj-Ozan_Unnamed-Debug</value>
+=======
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Uni Stuff/GUI/QT Stuff/build-final_proj-Desktop_Qt_5_15_2_MinGW_64_bit-Debug</value>
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

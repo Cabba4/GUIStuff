@@ -11,26 +11,37 @@ audioplayer::audioplayer(QObject* parent) : QObject(parent)
     playlist = new QMediaPlaylist;
     player->setPlaylist(playlist);
 
+<<<<<<< HEAD
     QString path1 = "qrc:/jjk.mp3";
+=======
+    QString path1 = ":/condition_one.ogg";
+>>>>>>> 194238677de41e44a8d02e6110b6ac0183aa881f
     qDebug() << path1;
-
-    QList<QString> mimeTypes = player->supportedMimeTypes();
-        if (!mimeTypes.isEmpty()) {
-            foreach (const QString & mimeType, mimeTypes) {
-                qDebug() << mimeType;
-            }
-        }
-        else {
-            qDebug() << "SUCKER";
-        }
+    QFile file(path1);
+    if (file.exists()) {
+        qDebug() << "File exists at path" << path1;
+    } else {
+        qDebug() << "File not found at path" << path1;
+    }
 
     playlist->addMedia(QUrl::fromLocalFile(path1));
     //playlist->addMedia(QUrl::fromLocalFile(path2));
     playlist->setCurrentIndex(0);
 
+    // Update the song list
+    m_songList << "jjk" << "some_other_song";
+    emit songListChanged();
+
     // Connect the player signals to our slots
     connect(player, &QMediaPlayer::stateChanged, this, &audioplayer::onPlayStateChanged);
     connect(playlist, &QMediaPlaylist::currentIndexChanged, this, &audioplayer::onSongChanged);
+
+
+    if (playlist->isEmpty()) {
+        qDebug() << "Playlist is empty";
+    } else {
+        qDebug() << "Playlist is not empty";
+    }
 
     // Set the playlist on the player
     player->setPlaylist(playlist);
@@ -94,4 +105,9 @@ void audioplayer::onSongChanged(int index)
 {
     QString fileName = QMediaContent(playlist->media(index)).request().url().toLocalFile();
     emit songChanged(fileName);
+}
+
+QStringList audioplayer::getSongList() const
+{
+    return m_songList;
 }
