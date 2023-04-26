@@ -1,8 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <audioplayer.h>
-#include <QPushButton>
-#include <QTextBrowser>
+#include <QDebug>
+#include <QQmlContext>
 
 int main(int argc, char *argv[])
 {
@@ -10,23 +10,19 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
-
-    audioplayer audioPlayer;
     QQmlApplicationEngine engine;
+
+    QStringList songList;
+    songList << "C:/Uni Stuff/GUI/QT Stuff/final_proj/jjk.mp3";
+
+    audioplayer audioPlayer(songList);
+
+    // line above is making audio player with a songlist as input for constructor. run debugger to check values. WILL HELP
+
+    qDebug() << "AudioPlayer initialized with song list:" << audioPlayer.getSongList();
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
-    // Get the root object of the QML file
-    QObject *rootObject = engine.rootObjects().first();
-
-    // Get the play button from the QML file
-    QPushButton *playButton = rootObject->findChild<QPushButton*>("playButton");
-
-    // Get the music list text from the QML file
-    QTextBrowser *musicList = rootObject->findChild<QTextBrowser*>("musicList");
-
-    // Connect the AudioPlayer signals to the Button slots
-    QObject::connect(&audioPlayer, &audioplayer::playStateChanged, playButton, &QPushButton::setText);
-    QObject::connect(&audioPlayer, &audioplayer::songChanged, musicList, &QTextBrowser::setText);
+    engine.rootContext()-> setContextProperty("audioplayer", &audioPlayer);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

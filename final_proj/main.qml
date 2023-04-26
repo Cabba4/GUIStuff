@@ -3,6 +3,8 @@ import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.0
 
+// SOMEHOW HAVE TO IMPORT audioPlayer here so that buttons can work.
+
 Window {
     width: 640
     height: 480
@@ -22,64 +24,34 @@ Window {
 
         ListView {
             id: musicList
-                width: parent.width
-                height: 200
-                model: audioPlayer.songList // Bind to the songList property of your audioplayer instance
-                delegate: Text {
-                    text: modelData
-                    font.pixelSize: 14
-                }
+            width: parent.width
+            height: 200
+            model: audioPlayer.songList // Bind to the songList property of your audioplayer instance
+            delegate: Text {
+                text: modelData
+                font.pixelSize: 14
+            }
         }
 
         RowLayout {
             spacing: 10
 
             Button {
-                id: backwardButton
-                text: "Backward"
-                onClicked: {
-                    // TODO: Implement backward functionality
-                }
-            }
-
-            Button {
                 id: playButton
                 text: "Play"
                 onClicked: {
-                       audioPlayer.togglePlay();
-                    //playButton.text = audioPlayer.player.state() == QMediaPlayer::PlayingState ? "Pause" : "Play";
-
-                   }
+                    audioPlayer.play();
+                }
             }
 
             Button {
                 id: pauseButton
                 text: "Pause"
                 onClicked: {
-                    // TODO: Implement pause functionality
+                    audioPlayer.pause();
                 }
             }
 
-            Button {
-                id: forwardButton
-                text: "Forward"
-                onClicked: {
-                    // TODO: Implement forward functionality
-                }
-            }
-
-
-        }
-
-        Slider {
-            id: volumeSlider
-            width: parent.width
-            from: 0
-            to: 100
-            value: 50
-            onValueChanged: {
-                // TODO: Implement volume control functionality
-            }
         }
     }
 }
