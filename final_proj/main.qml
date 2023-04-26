@@ -10,14 +10,13 @@ Window {
     height: 480
     visible: true
     title: qsTr("Audio Player")
-    color: "#779ECB"
+    color: "#779ecb"
 
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 10
-
         Text {
-            text: "Music List"
+            text: "Playlist"
             font.bold: true
             font.pixelSize: 16
         }
@@ -26,32 +25,92 @@ Window {
             id: musicList
             width: parent.width
             height: 200
-            model: audioPlayer.songList // Bind to the songList property of your audioplayer instance
+            model: audioplayer.songList // Bind to the songList property of your audioplayer instance
             delegate: Text {
                 text: modelData
                 font.pixelSize: 14
             }
-        }
+}
 
         RowLayout {
             spacing: 10
 
             Button {
-                id: playButton
-                text: "Play"
+                id: backButton
+                text: "|◁ "
+                font.pointSize: 22
                 onClicked: {
-                    audioPlayer.play();
+                    audioplayer.play();
+                }
+                width: 55 // set the width to 50 pixels
+                height: 55 // set the height to 50 pixels
+                implicitWidth: width // set the implicit width to match the width
+                implicitHeight: height // set the implicit height to match the height
+                background: Rectangle {
+                    radius: width / 2 // set the border radius to half the width/height
+                    color: "transparent" // make the background transparent
+                    border.width: 1 // add a border with a width of 1 pixel
+                    border.color: "black" // set the border color to black
+                }
+            }
+
+            Button {
+                id: playButton
+                text: "▷"
+                font.pointSize: 22
+                onClicked: {
+                    audioplayer.play();
+                }
+                width: 55 // set the width to 50 pixels
+                height: 55 // set the height to 50 pixels
+                implicitWidth: width // set the implicit width to match the width
+                implicitHeight: height // set the implicit height to match the height
+                background: Rectangle {
+                    radius: width / 2 // set the border radius to half the width/height
+                    color: "transparent" // make the background transparent
+                    border.width: 1 // add a border with a width of 1 pixel
+                    border.color: "black" // set the border color to black
                 }
             }
 
             Button {
                 id: pauseButton
-                text: "Pause"
+                text: "II"
+                font.pointSize: 22
                 onClicked: {
-                    audioPlayer.pause();
+                    audioplayer.pause();
+                }
+                width: 55 // set the width to 50 pixels
+                height: 55 // set the height to 50 pixels
+                implicitWidth: width // set the implicit width to match the width
+                implicitHeight: height // set the implicit height to match the height
+                background: Rectangle {
+                    radius: width / 2 // set the border radius to half the width/height
+                    color: "transparent" // make the background transparent
+                    border.width: 1 // add a border with a width of 1 pixel
+                    border.color: "black" // set the border color to black
                 }
             }
 
+            Button {
+                id: ffButton
+                text: "▷|"
+                font.pointSize: 22
+                onClicked: {
+                    audioplayer.play();
+                }
+                width: 55 // set the width to 50 pixels
+                    height: 55 // set the height to 50 pixels
+                    implicitWidth: width // set the implicit width to match the width
+                    implicitHeight: height // set the implicit height to match the height
+                    background: Rectangle {
+                        radius: width / 2 // set the border radius to half the width/height
+                        color: "transparent" // make the background transparent
+                        border.width: 1 // add a border with a width of 1 pixel
+                        border.color: "black" // set the border color to black
+                    }
+
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>jjk.mp3</file>
-        <file>Jacks Smirking Revenge - First Half - Xtended - Fight Club.mp3</file>
+        <file>fight-club.mp3</file>
         <file>condition_one.ogg</file>
     </qresource>
 </RCC>
