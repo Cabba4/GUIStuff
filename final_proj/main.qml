@@ -29,7 +29,9 @@ Window {
             delegate: Text {
                 text: modelData
                 font.pixelSize: 14
+
             }
+
 }
 
         RowLayout {
@@ -59,7 +61,7 @@ Window {
                 text: "▷"
                 font.pointSize: 22
                 onClicked: {
-                    audioplayer.play();
+                    audioplayer.play
                 }
                 width: 55 // set the width to 50 pixels
                 height: 55 // set the height to 50 pixels

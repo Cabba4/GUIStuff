@@ -13,9 +13,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QStringList songList;
-    songList << "qrc:/jjk.mp3";
-    songList << "qrc:/fight-club.mp3";
-    songList << "qrc:/condition_one.ogg";
+    songList << "/home/tomasg/Documents/Studies/TAMK/2Y-Spring/GUI/gui-stuff/GUIStuff/final_proj/jjk.mp3";
+    songList << "/home/tomasg/Documents/Studies/TAMK/2Y-Spring/GUI/gui-stuff/GUIStuff/final_proj/fight-club.mp3";
+    songList << "/home/tomasg/Documents/Studies/TAMK/2Y-Spring/GUI/gui-stuff/GUIStuff/final_proj/condition_one.ogg";
 
     audioplayer audioPlayer(songList);
 
